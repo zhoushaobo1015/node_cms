@@ -1,0 +1,9 @@
+.form-horizontal .form-group{
+    height: 44px;
+}
+a{
+    text-decoration: none;
+}
+.visible-md.visible-lg.hidden-sm.hidden-xs.btn-group.center {
+    display: flex !important;
+}

@@ -1,0 +1,18 @@
+<div id="header-wrapper">
+    <div class="header-inner">
+        <div class="logo">
+               <h1>
+                <a href="#" title="欢迎来到麦田国际">麦田国际</a>
+            </h1> 
+        </div>
+        <div class="nav">
+            <ul class="clear">
+                {{each navList}}
+                <li>
+                    <a href="{{$value.url}}" {{if $value.url=== pathname}} class="active" {{/if}} >{{$value.title}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>

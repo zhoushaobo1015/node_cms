@@ -1,0 +1,209 @@
+﻿{{include 'admin/public/header.html'}}
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			{{include 'admin/public/nav_top.html'}}
+		</div>
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+				<!--左侧导航-->
+				{{include 'admin/public/nav_left.html'}}
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">首页</a>
+							</li>
+							<li class="active">控制台</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+
+						<div class="page-header">
+							<h1>系统设置</h1>
+						</div><!-- /.page-header -->
+						<!--表格-->
+						<div class="table-responsive">
+							<form action="{{__HOST__}}/admin/settings/doSettings" method="post" class="form-horizontal" enctype="multipart/form-data">
+								<div class="tab-content" style="border: none;">
+									<div class="tab-pane fade in active">
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="site_title">网站名称:</label>
+											<div class="col-sm-10">
+												<input type="text" id="site_title"  name="site_title" class="col-xs-10 col-sm-5" value="{{site_info.site_title}}"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="site_logo">网站logo:</label>
+											<div class="col-sm-10">
+												<input type="file" id="site_logo"  name="site_logo" class="col-xs-10 col-sm-5" />
+											</div>
+										</div>
+
+										<div class="form-group" style="height: 100px;">
+											<label class="col-sm-2 control-label no-padding-right" for=""></label>
+											<div class="col-sm-10">
+												<img src="{{__HOST__}}{{site_info.site_logo}}" alt="" width="100"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="site_keywords">网站关键字:</label>
+											<div class="col-sm-10">
+												<input type="text" id="site_keywords"  name="site_keywords" class="col-xs-10 col-sm-5" value="{{site_info.site_keywords}}"/>
+											</div>
+										</div>
+
+										<div class="form-group" style="height: 70px;">
+											<label class="col-sm-2 control-label no-padding-right" for="site_description">网站描述:</label>
+											<div class="col-sm-10">
+												<textarea name="site_description" id="site_description" cols="43" rows="3">{{site_info.site_description}}</textarea>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="site_icp">网站备案号:</label>
+											<div class="col-sm-10">
+												<input type="text" id="site_icp"  name="site_icp" class="col-xs-10 col-sm-5" value="{{site_info.site_icp}}"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="site_qq">客服QQ:</label>
+											<div class="col-sm-10">
+												<input type="text" id="site_qq"  name="site_qq" class="col-xs-10 col-sm-5" value="{{site_info.site_qq}}"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="site_tel">客服电话:</label>
+											<div class="col-sm-10">
+												<input type="text" id="site_tel"  name="site_tel" class="col-xs-10 col-sm-5" value="{{site_info.site_tel}}"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="site_address">公司地址:</label>
+											<div class="col-sm-10">
+												<input type="text" id="site_address"  name="site_address" class="col-xs-10 col-sm-5" value="{{site_info.site_address}}"/>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="site_status">是否关闭网站:</label>
+											<div class="col-sm-10">
+												<label for="site_status1">
+													<span>是</span>
+													<input type="radio" name="site_status" id="site_status1" value="1" {{if site_info.site_status === "1"}} checked {{/if}} >
+												</label>
+												<label for="site_status2">
+													<span>否</span>
+													<input type="radio" name="site_status" id="site_status2" value="0" {{if site_info.site_status === "0"}} checked {{/if}}>
+												</label>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="title">添加时间:</label>
+											<div class="col-sm-10">
+												<p  class="col-xs-10 col-sm-5">{{site_info.add_time | dateFormat}}</p>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label no-padding-right"> </label>
+									<div class="col-sm-10">
+										<button type="submit" class="btn btn-primary">提交</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div id="paging" class="pagination"></div>
+					</div>
+				</div><!-- /.main-content -->
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+	{{include 'admin/public/footer.html'}}
+		<script src="{{__HOST__}}/jq-paginator.min.js"></script>
+		<!-- <script>
+		$('#paging').jqPaginator({
+			totalPages: {{totalPages}},
+			visiblePages: 8,
+			currentPage: {{currentPage}},
+			onPageChange: function (num, type) {
+				if(type === "change"){
+					location.href="{{__HOST__}}/admin/article?page="+num;
+				}
+			}
+		});
+		</script> -->
+
+
+
+		<script type="text/javascript">
+			jQuery(function($) {
+								
+				$('table th input:checkbox').on('click' , function(){
+					var that = this;
+					$(this).closest('table').find('tr > td:first-child input:checkbox')
+					.each(function(){
+						this.checked = that.checked;
+						$(this).closest('tr').toggleClass('selected');
+					});
+				});
+			
+				$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+				function tooltip_placement(context, source) {
+					var $source = $(source);
+					var $parent = $source.closest('table')
+					var off1 = $parent.offset();
+					var w1 = $parent.width();
+			
+					var off2 = $source.offset();
+					var w2 = $source.width();
+			
+					if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+					return 'left';
+				}
+			})
+		</script>
+	
+</body>
+</html>
+

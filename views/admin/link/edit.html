@@ -1,0 +1,109 @@
+﻿{{include 'admin/public/header.html'}}
+<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script> 
+<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script> 
+<script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+			{{include 'admin/public/nav_top.html'}}
+		</div>
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				{{include 'admin/public/nav_left.html'}}
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">首页</a>
+							</li>
+							<li class="active">控制台</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								修改轮播图
+							</h1>
+						</div><!-- /.page-header -->
+						<img src="{{__HOST__}}public/upload/image/1569487803432.jpeg" alt="" srcset="" />
+						<form action="{{__HOST__}}/admin/link/doEdit" method="post" class="form-horizontal" enctype="multipart/form-data">
+							<div class="tab-content" style="border: none;">
+								<input type="text" id="id"  name="id" class="col-xs-10 col-sm-5" value="{{@info._id}}" style="display: none;"/>
+								<div class="tab-pane fade in active">
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="title">名称:</label>
+										<div class="col-sm-10">
+											<input type="text" id="title"  name="title" class="col-xs-10 col-sm-5" value="{{info.title}}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="file">图片:</label>
+										<div class="col-sm-10">
+											<input type="file" id="file"  name="file" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+									<div class="form-group" style="height: 100px;">
+										<label class="col-sm-2 control-label no-padding-right" >图片预览:</label>
+										<div class="col-sm-10">
+											<img src="{{__HOST__}}{{info.pic}}" alt="" style="width: 100px;">
+											<input type="text" value="{{info.pic}}" style="display: none;" name="pic" id="pic">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="link">地址:</label>
+										<div class="col-sm-10">
+											<input type="text" id="link"  name="link" class="col-xs-10 col-sm-5" value="{{info.link}}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right" for="status">排序:</label>
+										<div class="col-sm-10">
+											<input type="number" name="status" id="status" value="{{info.status}}" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label no-padding-right"> </label>
+								<div class="col-sm-10">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div><!-- /.main-content -->
+			</div><!-- /.main-container-inner -->
+		</div><!-- /.main-container -->
+		{{include 'admin/public/footer.html'}}
+</body>
+</html>
+
